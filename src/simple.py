@@ -1,6 +1,9 @@
 from tkinter import *
 from tkinter import ttk
 
+# Classe para uma notificação de forma constante
+# Apenas tem metodo para chamar a notificao simples 
+# E personalizar nome janela, titulo e descrição
 class simple:
     # Metodo para iniciar a notific simples
     # Estudar biblioteca pra melhorar a janela
