@@ -2,7 +2,6 @@ from tkinter import *
 from tkinter import ttk
 
 class simple:
-
     # Metodo para iniciar a notific simples
     # Estudar biblioteca pra melhorar a janela
     def initSimple(self, nome_janela, titulo, descricao):
