@@ -1,8 +1,8 @@
 from src.notific import notific
 
-a = notific()
-a.addHours(["04:11"])
+a = notific("nome janela", "titulo da janela", "descricao da janela")
+a.addHours(["04:20"])
 a.startSendNotificConstant()
-a.persoConstantNotific("Nome janela", "titulo aqui", "descricao aqui")
+a.persoConstantNotific()
 a.startConstantNotific()
 

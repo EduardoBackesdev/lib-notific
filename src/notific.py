@@ -4,13 +4,17 @@ from src.hours import hours
 
 # Metodo principal
 class notific(simpleNotific, constant, hours):
-    # ---------------------METODOS AUXILIARES--------------------- #
 
-    
+    # Metododo construtor para classe notific, seta nome da janela, titulo e descricao da notificação
+    def __init__(self, nome_janela, titulo, descricao):
+        self.nj = nome_janela
+        self.t = titulo
+        self.d = descricao
+
+    # ---------------------METODOS AUXILIARES--------------------- #
     def addHours(self, horas):
         """ Metodo de classe principal para setar horas para notificação constante """
         self.h = horas
-        print(self.h)
         hours.__init__(self, self.h)
 
     def startSendNotificConstant(self):
@@ -18,19 +22,12 @@ class notific(simpleNotific, constant, hours):
         hours.starThreadHours(self)   
 
     # ---------------------METODOS NOTIFICAÇÕES--------------------- #
-
-    def startSimpleNotific(self, nome_janela, titulo, descricao):
+    def startSimpleNotific(self):
         """ Metodo de classe principal para iniciar norificacao simples """
-        self.nj = nome_janela
-        self.t = titulo
-        self.d = descricao
         self.initSimple(self.nj, self.t, self.d)
 
-    def persoConstantNotific(self, nome_janela, titulo, descricao):
+    def persoConstantNotific(self):
         """ Metodo de classe principal para personalizar notificação constante """
-        self.nj = nome_janela
-        self.t = titulo
-        self.d = descricao
         self.constantNotific(self.nj, self.t, self.d)
 
     def startConstantNotific(self):
