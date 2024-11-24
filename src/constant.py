@@ -1,19 +1,19 @@
 from tkinter import *
 from tkinter import ttk
-from hours import hours
+from src.hours import hours
 import queue
 import threading
 
 # Classe para uma notificação de forma constante
 # Implementa classe hours para definir as horas de notificação
 # E iniciar a thread de comunicaçao com classe constant
-class constant(hours):
+class constant:
     def __init__(self):
           self.running = False
           self.fila = None
 
     # Metodo para definir a janela de notificacao
-    def constant(self, nome_janela, titulo, descricao):
+    def constantNotific(self, nome_janela, titulo, descricao):
             if self.running and self.fila.get():
                 root = Tk()
                 root.title(nome_janela)
@@ -33,10 +33,10 @@ class constant(hours):
                 root.mainloop()
 
     # Metodo que inicia a Thread
-    def startThread(self):
+    def startThreadConstant(self):
           self.running = True
           self.fila = queue.Queue()
-          thread = threading.Thread(target=self.constant, args=(self.fila,))
+          thread = threading.Thread(target=self.constantNotific, args=(self.fila,))
           thread.start()
         
 

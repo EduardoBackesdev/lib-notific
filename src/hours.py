@@ -11,7 +11,7 @@ class hours:
         self.fila = None
 
     # Metodo que verifica a hora atual
-    def sendNotific(self):
+    def sendNotific(self, fila):
         if self.running:
             a = 1
             while a != 0:
@@ -21,10 +21,10 @@ class hours:
                 for i in self.horas:
                     if i == formated_hora:
                         mes = "MANDANDO MENSAGEM"
-                        self.fila.put()
+                        self.fila.put(mes)
 
     # Metodo que inicia a Thread
-    def starThread(self):
+    def starThreadHours(self):
         self.running = True
         self.fila = queue.Queue()
         startT = threading.Thread(target=self.sendNotific, args=(self.fila,))
