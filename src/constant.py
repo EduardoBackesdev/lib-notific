@@ -1,6 +1,5 @@
 from tkinter import *
 from tkinter import ttk
-from src.hours import hours
 import queue
 import threading
 
@@ -8,15 +7,18 @@ import threading
 # Implementa classe hours para definir as horas de notificação
 # E iniciar a thread de comunicaçao com classe constant
 class constant:
-    def __init__(self):
+    def __init__(self, nome_janela, titulo, descricao):
           self.running = False
           self.fila = None
+          self.nj = nome_janela
+          self.t = titulo
+          self.d = descricao
 
     # Metodo para definir a janela de notificacao
-    def constantNotific(self, nome_janela, titulo, descricao):
+    def constantNotific(self, fila):
             if self.running and self.fila.get():
                 root = Tk()
-                root.title(nome_janela)
+                root.title(self.nj)
                 altura = 500
                 largura = 500
                 w = root.winfo_screenmmwidth()
@@ -28,8 +30,8 @@ class constant:
                 mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
                 root.columnconfigure(0, weight=1)
                 root.rowconfigure(0, weight=1)
-                ttk.Label(mainframe, text=titulo, font=50).grid(column=0, row=1, sticky="nsew")
-                ttk.Label(mainframe, text=descricao).grid(column=0, row=2, sticky="")
+                ttk.Label(mainframe, text=self.t, font=50).grid(column=0, row=1, sticky="nsew")
+                ttk.Label(mainframe, text=self.d).grid(column=0, row=2, sticky="")
                 root.mainloop()
 
     # Metodo que inicia a Thread

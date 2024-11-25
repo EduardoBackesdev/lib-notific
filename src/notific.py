@@ -28,7 +28,8 @@ class notific(simpleNotific, constant, hours):
 
     def persoConstantNotific(self):
         """ Metodo de classe principal para personalizar notificação constante """
-        self.constantNotific(self.nj, self.t, self.d)
+        constant.__init__(self, self.nj, self.t, self.d)
+        self.constantNotific(self)
 
     def startConstantNotific(self):
         """ Metodo de classe principal para iniciar notificação constante """
